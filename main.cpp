@@ -27,10 +27,31 @@ bool displayImage(std::string& path) {
 	return true;
 }
 
+void testImageStream() {
+	cv::Mat img;
+	std::string windowName = "Video Feed";
+
+	cv::namedWindow(windowName);
+	cv::VideoCapture vStream(0);
+
+	if (!vStream.isOpened()) {
+		std::cout << "Failed to open video stream.\n";
+	}
+	
+	while (true) {
+		vStream >> img;
+
+		cv::imshow(windowName, img);
+		cv::waitKey(25);	
+	}
+
+}
+
 int main() {
 	std::string path = "images\\nathan-birch.png";
 	
 	displayImage(path);
+	testImageStream();
 
 	return 0;
 }
