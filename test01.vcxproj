@@ -135,11 +135,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Process.cpp" />
+    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="stitchingTest.cpp" />
     <ClCompile Include="test_opencv.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Process.h" />
+    <Text Include="COCO Names.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
