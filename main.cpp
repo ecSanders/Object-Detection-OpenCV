@@ -26,20 +26,6 @@ struct Bbox{
     cv::Rect bbox;
 };
 
-void drawLabel(cv::Mat& input, std::string classNames, int left, int top){
-    // Display the label at the top of the bounding box.
-    int baseLine;
-    cv::Size label_size = cv::getTextSize(classNames, cv::FONT_HERSHEY_SIMPLEX, 0.7, 1, &baseLine);
-    top = cv::max(top, label_size.height);
-
-    cv::Point tlc = cv::Point(left, top);
-    cv::Point brc = cv::Point(left + label_size.width, top + label_size.height + baseLine);
-
-    // Draw black rectangle and write on it
-    cv::rectangle(input, tlc, brc, cv::Scalar(0,0,0), cv::FILLED);
-    cv::putText(input, classNames, cv::Point(left, top + label_size.height), cv::FONT_HERSHEY_SIMPLEX, 0.7, cv::Scalar(0, 255, 255), 1);
-}
-
 cv::Mat augmentImage(const cv::Mat& source) {
     int col = source.cols;
     int row = source.rows;
