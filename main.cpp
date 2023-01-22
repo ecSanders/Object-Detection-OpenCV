@@ -4,7 +4,7 @@
 * File: main.cpp
 * 
 * NOTE: This project was heavily influenced by the 
-* https://github.com/spmallick/learnopencv/blob/master/Object-Detection-using-YOLOv5-and-OpenCV-DNN-in-CPP-and-Python/yolov5.cpp
+* https://github.com/doleron/yolov5-opencv-cpp-python/blob/main/cpp/yolo.cpp
 * repository. I used their work as a template as well as others. Many of the same steps are taken in this repository as others
 *
 *********************************************************************************************************************************/
@@ -74,9 +74,9 @@ void getPredictions(cv::Mat &image, cv::dnn::Net &net, std::vector<Bbox> &output
                 class_ids.push_back(class_id.x);
 
                 float x = data[0];
-                float y = data[1];
+                float y = data[1] * 1.5;
                 float w = data[2];
-                float h = data[3];
+                float h = data[3] * 1.5;
                 int left = int((x - 0.5 * w) * x_factor);
                 int top = int((y - 0.5 * h) * y_factor);
                 int width = int(w * x_factor);
@@ -100,10 +100,8 @@ void getPredictions(cv::Mat &image, cv::dnn::Net &net, std::vector<Bbox> &output
         result.bbox = boxes[idx];
         output.push_back(result);
     }
-
      
     }
-
 
 int main() {
     int id = 0;
@@ -129,7 +127,7 @@ int main() {
     if (id == 0) {
         // Load test image
         std::string windowName = "Test Image";
-        std::string img = "images\\nathan-birch.png";
+        std::string img = "images\\people.jpg";
         input = cv::imread(img);
 
         if (input.empty()) {
