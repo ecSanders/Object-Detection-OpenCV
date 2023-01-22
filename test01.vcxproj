@@ -135,7 +135,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Source.cpp" />
     <ClCompile Include="stitchingTest.cpp" />
     <ClCompile Include="test_opencv.cpp" />
   </ItemGroup>
