@@ -3,10 +3,6 @@
 * Date: January 21, 2023
 * File: main.cpp
 * 
-* NOTE: This project was heavily influenced by the 
-* https://github.com/doleron/yolov5-opencv-cpp-python/blob/main/cpp/yolo.cpp
-* repository. I used their work as a template as well as others. Many of the same steps are taken in this repository as others
-*
 *********************************************************************************************************************************/
 
 
@@ -114,13 +110,14 @@ int main() {
     std::ifstream ifs("COCO Names.txt");
     std::string line;
 
+    while (std::getline(ifs, line)) {
+        classNames.push_back(line);
+    }
+
     // Initialize a vector of predictions
     std::vector<Bbox> predictions;
     cv::Mat input;
 
-    while (std::getline(ifs, line)) {
-        classNames.push_back(line);
-    }
 
 
     // Run on image
