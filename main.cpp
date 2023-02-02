@@ -3,7 +3,7 @@
 * Date: January 21, 2023
 * File: main.cpp
 * 
-* NOTE: This project was heavily influenced by the 
+* NOTE: This project was influenced by the 
 * https://github.com/doleron/yolov5-opencv-cpp-python/blob/main/cpp/yolo.cpp
 * repository. I used their work as a template as well as others. Many of the same steps are taken in this repository as others
 *
